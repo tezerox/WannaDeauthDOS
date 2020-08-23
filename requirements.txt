@@ -1,0 +1,8 @@
+colorama
+threading
+requests
+socket
+time
+bs4
+urllib.request
+json
